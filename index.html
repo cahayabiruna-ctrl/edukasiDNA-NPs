@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi DNA Naga Persada</title>
+    <meta name="description" content="Audio Edukasi dan Transkrip DNA Tim Divi Naga Persada oleh Deka Sonjaya.">
+    <meta name="keywords" content="DVTEAM, OPALP, Divi Naga Persada, Deka Sonjaya, Edukasi, Motivasi">
+    <meta name="author" content="Deka Sonjaya">
+
+    <link rel="icon" href="DVlogo.png" type="image/png">
+    
+    <style>
+        :root {
+            --primary-color: #0a0a23;
+            --secondary-color: #f5f5f5;
+            --accent-color: #d4af37; /* Emas */
+            --text-color: #e0e0e0;
+            --bg-color: #1b1b32;
+            --highlight-bg: #3b3b4f;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid var(--highlight-bg);
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--highlight-bg);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        header img {
+            max-width: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            margin: 0;
+            color: var(--accent-color);
+            font-size: 2em;
+            font-weight: 700;
+        }
+         header p {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin: 5px 0 0 0;
+        }
+
+        #audioPlayer {
+            width: 100%;
+            border-radius: 0;
+            margin-top: 20px;
+        }
+        
+        audio {
+            filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(98%);
+        }
+
+        #transkripContainer {
+            padding: 25px;
+            max-height: 500px;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .transkrip-item {
+            margin-bottom: 18px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: var(--primary-color);
+            border-left: 5px solid var(--highlight-bg);
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .transkrip-item:hover {
+            background-color: var(--highlight-bg);
+        }
+
+        .transkrip-item.active {
+            background-color: var(--highlight-bg);
+            border-left: 5px solid var(--accent-color);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .transkrip-item strong {
+            color: var(--accent-color);
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .transkrip-item span {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.1em;
+            color: var(--secondary-color);
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--highlight-bg);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #888;
+            background-color: var(--highlight-bg);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="DVlogo.png" alt="Logo DVTEAM">
+            <h1>DNA Naga Persada</h1>
+            <p>Oleh: Deka Sonjaya</p>
+        </header>
+
+        <audio id="audioPlayer" controls preload="metadata">
+            <source src="pelDNAnaga.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung elemen audio.
+        </audio>
+
+        <div id="transkripContainer">
+            </div>
+        
+    </div>
+    
+    <footer>
+        &copy; 2025 - DVTEAM Naga Persada
+    </footer>
+
+    <script>
+        // Data Transkrip dengan Timestamp (Detik)
+        const transkrip = [
+            { time: 0, title: "Pembuka", text: "Assalamualaikum Warahmatullahi Wabarakatuh. Salam edukasi dan tetap semangat..." },
+            { time: 70, title: "Sesi 1: Fondasi di Balik Sang Naga", text: "Sebelum kita belajar jurus-jurusnya, kita harus menanamkan tiga fondasi pola pikir..." },
+            { time: 88, title: "Fondasi Pertama: Konsultan, Bukan Perekrut", text: "Dan ini yang paling penting, kita adalah seorang konsultan, bukan perekrut..." },
+            { time: 165, title: "Fondasi Kedua: Berbicara pada Hati", text: "Kita berbicara pada hati, bukan pada kepala. Pikiran sadar atau logika prospek..." },
+            { time: 202, title: "Fondasi Ketiga: Duplikasi Sederhana", text: "Kekuatan kita ada pada duplikasi sederhana. Sistem kerja kita ini seperti resep nasi goreng..." },
+            { time: 229, title: "Sesi 2: Alur Percakapan Naga dalam Aksi", text: "Sekarang, mari kita lihat bagaimana ketiga fondasi ini bekerja dalam sebuah alur percakapan..." },
+            { time: 252, title: "Langkah 1: Pembuka Pintu", text: "Ngomong-ngomong soal biaya hidup sekarang, saya jadi kepikiran sesuatu..." },
+            { time: 264, title: "Langkah 2: Filter Peminat", text: "Seandainya, ada sebuah sistem yang dapat menghasilkan uang tambahan..." },
+            { time: 299, title: "Langkah 3: Ledakan Rasa Penasaran (Cerita)", text: "Teman saya si Markonah yang kerja di bank itu, dulu tiap akhir bulan stres..." },
+            { time: 332, title: "Langkah 4: Pivot Profesional", text: "Wah, semangat sekali, saya senang Anda melihat ini sebagai peluang serius..." },
+            { time: 354, title: "Langkah 5: Mengunci Komitmen & Closing", text: "Anda bisa memilih salah satu dari dua cara, tergantung situasi..." },
+            { time: 365, title: "Opsi A: Menggunakan Alat Bantu (Audio)", text: "Cara terbaik biar Anda paham, saya punya audio presentasi singkat..." },
+            { time: 408, title: "Opsi B: Mengundang ke Acara Eksklusif", text: "Wah, kebetulan sekali Akang bertanya sekarang. Besok atau lusa..." },
+            { time: 457, title: "Tahap Konsultasi & Closing", text: "Setelah acara / mendengar audio... Anda menelepon dan bertanya: Gimana Kang..." },
+            { time: 478, title: "Mengukur Kesiapan (Skala 1-10)", text: "Dari skala 1 sampai 10, di mana 10 itu siap mulai sekarang bareng kita..." },
+            { time: 488, title: "Penanganan: Jawaban 7 ke Atas", text: "Angka 8 itu bagus sekali. Apa yang Akang butuhkan untuk jadi 10?..." },
+            { time: 504, title: "Penanganan: Jawaban 6 ke Bawah (Diagnostik)", text: "Tetap tenang dan hargai kejujuran. Angka 5 ya, oke sip..." },
+            { time: 534, title: "Diagnostik: 'Angka 5 ya...'", text: "Biar saya bisa belajar juga, boleh tahu nggak Kang, apa yang membuat Akang memilih angka 5..." },
+            { time: 540, title: "Penanganan Masalah: Trauma/Scam", text: "Jawab dengan cerita: Saya paham sekali perasaan Akang. Dulu teman saya, si Kumpai..." },
+            { time: 611, title: "Penanganan Masalah: Tidak Punya Uang", text: "Jawab dengan cerita: Terima kasih banyak sudah jujur Kang. Ini persis seperti cerita leader tim saya..." },
+            { time: 648, title: "Penanganan Masalah: Tidak Bisa Merekrut", text: "Jawab dengan pernyataan sistem: Nah, justru itu kekuatan sistem kita Kang..." },
+            { time: 675, title: "Penanganan Masalah: Saya Tidak Tertarik", text: "Hormati keputusannya: Siap Kang, tidak masalah sama sekali..." },
+            { time: 688, title: "Sesi 3: Dari Anggota Baru Menjadi Ketua Tim", text: "Selamat! Anda berhasil mensponsori anggota baru. Sekarang pekerjaan seorang ketua tim sejati dimulai..." },
+            { time: 700, title: "Misi 72 Jam Pertama", text: "Tugas pertama Anda adalah misi 72 jam pertama, dampingi anggota baru Anda..." },
+            { time: 708, title: "Sistem Pelatihan Tiga Langkah", text: "Gunakan sistem pelatihan tiga langkah: Pertama, aku lakukan, kamu lihat..." },
+            { time: 720, title: "Prinsip Kemandirian", text: "Selalu tanamkan prinsip kemandirian. Jangan menjadi Google untuk tim Anda..." },
+            { time: 728, title: "Kekuatan Pengakuan", text: "Gunakan kekuatan pengakuan. Selalu puji usahanya, bukan hanya hasilnya." },
+            { time: 735, title: "Kesimpulan dan Penutup", text: "Inilah alur lengkap DNA Tim Divi Naga Persada. Dari pola pikir yang benar..." },
+            { time: 755, title: "Dua Pilar Utama", text: "Ingat baik-baik, DNA kita berdiri di atas dua pilar utama: pola pikir yang tepat..." },
+            { time: 763, title: "Tiga Hal Penting", text: "Tiga hal penting yang harus selalu diingat: (1) Pola Pikir Adalah Segalanya..." },
+            { time: 767, title: "1. Pola Pikir Adalah Segalanya", text: "Ingatlah selalu tiga fondasi kita: kita adalah konsultan pencari apel merah..." },
+            { time: 810, title: "2. Sistem Adalah Peta Anda", text: "Jangan pernah menyimpang dari lima langkah alur percakapan naga..." },
+            { time: 831, title: "3. Kepemimpinan Adalah Pelayanan", text: "Tugas kita tidak selesai saat berhasil mensponsori. Justru di situlah dimulai tugas..." },
+            { time: 858, title: "Kalimat Kunci Wajib Dihafal", text: "Dan untuk memastikan setiap langkah Anda efektif, ada beberapa kalimat kunci..." },
+            { time: 868, title: "Hafalkan: Kalimat-kalimat Kunci", text: "Hafalkan: Kalimat-kalimat kunci alur percakapan naga. Satu, kalimat pembuka pintu..." },
+            { time: 892, title: "Penutup Akhir", text: "Pegang ini sebagai pusaka Anda... Saya Deka Sonjaya mengucapkan terima kasih..." }
+        ];
+
+        // SISA FUNGSI DI BAWAH INI TIDAK DIUBAH
+        
+        const audioPlayer = document.getElementById('audioPlayer');
+        const transkripContainer = document.getElementById('transkripContainer');
+        let transkripItems = [];
+
+        // Fungsi untuk membuat elemen transkrip
+        function createTranskripElements() {
+            transkrip.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.classList.add('transkrip-item');
+                div.dataset.time = item.time;
+                div.dataset.index = index;
+
+                const title = document.createElement('strong');
+                title.textContent = item.title;
+                
+                const text = document.createElement('span');
+                text.textContent = item.text;
+
+                div.appendChild(title);
+                div.appendChild(text);
+                transkripContainer.appendChild(div);
+                transkripItems.push(div);
+            });
+        }
+
+        // Fungsi untuk menyorot transkrip aktif
+        function highlightTranskrip(currentTime) {
+            let activeIndex = -1;
+            
+            // Cari transkrip yang sesuai dengan waktu saat ini
+            for (let i = transkrip.length - 1; i >= 0; i--) {
+                if (currentTime >= transkrip[i].time) {
+                    activeIndex = i;
+                    break;
+                }
+            }
+
+            // Hapus kelas 'active' dari semua item
+            transkripItems.forEach((item, index) => {
+                if (index === activeIndex) {
+                    if (!item.classList.contains('active')) {
+                        item.classList.add('active');
+                        // Auto-scroll ke item aktif
+                        item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Event listener untuk audio player
+        audioPlayer.addEventListener('timeupdate', () => {
+            highlightTranskrip(audioPlayer.currentTime);
+        });
+
+        // Event listener untuk klik pada transkrip
+        transkripContainer.addEventListener('click', (e) => {
+            const item = e.target.closest('.transkrip-item');
+            if (item) {
+                const time = parseFloat(item.dataset.time);
+                audioPlayer.currentTime = time;
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
+                }
+            }
+        });
+
+        // Inisialisasi
+        createTranskripElements();
+        // Sorot item pertama saat dimuat
+        if (transkripItems.length > 0) {
+            transkripItems[0].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
